@@ -7,6 +7,7 @@
 @font-face {
     font-family: 'Gameplay';
     src: url('Gameplay.ttf');
+    font-weight: normal;
 }
 
 body {
@@ -92,6 +93,19 @@ body {
 
 .player-points,
 .computer-points {
+    flex: 2;
+    display: flex;
+}
+
+.player-points-red,
+.computer-points-red {
+    flex:0;
+    background-color: red;
+    margin: 12px 0 12px 0;
+}
+
+.player-points-green,
+.computer-points-green {
     flex:1;
     background-color: green;
     margin: 12px 0 12px 0;
@@ -118,7 +132,18 @@ body {
     flex-direction: column;
     height: 400px;
     border-radius: 20px;
-    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+}
+
+.game-text {
+    font-size: 45px;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    right: 10%;
+    transform: translate(0%,50%);
+    display: none;
 }
 
 .screen img{
@@ -146,12 +171,16 @@ body {
     background-color: #4c4c3e;
 }
 
+/*
 .move-selection button,
 .move-selection p,
 .player-info,
 .round,
-.computer-info {
+.computer-info,
+.game-screen-footer-text {
+    display: none;
 }
+*/
 
 .move-selection img {
     height: 50px;
