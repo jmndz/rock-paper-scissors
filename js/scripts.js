@@ -1,3 +1,23 @@
+const rock = document.querySelector(".button-rock");
+const paper = document.querySelector(".button-paper");
+const scissor = document.querySelector(".button-scissor");
+const gameText = document.querySelector(".game-footer-text");
+
+function startGame(e){
+
+}
+
+function introduction(){
+    let message = 'Welcome to my rock, paper, scissors game';
+    typeWriter(gameText,message);
+}
+
+function typeWriter(variable,text){
+    for(let i=0;i<text.length;i++){
+        variable.textContent += text[i];
+        setTimeout(typeWriter, 50);
+    }
+}
 
 function computerPlay(){
     let randomNumber = Math.floor(Math.random()*3)+1;

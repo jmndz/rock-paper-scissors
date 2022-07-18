@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -14,36 +13,39 @@
             <div class="sidebar-header">Game Log</div>
             <p>No records found.</p>
         </div>
+        <div class="divider"></div>
         <div class="game-container">
             <div class="game-header">
                 <div class="player-info">
-                    <div class="player-icon"><img src="./img/icons8-naruto-96.png" alt="player's picture"></div>
-                    <div class="player-points">health points</div>
+                    <div class="player-icon"><img src="./img/icons8-sailor-64.png" alt="player's picture"></div>
+                    <div class="player-points"></div>
                 </div>
                 <div class="round-counter">
-                    <div class="round">0</div>
+                    <div class="round">1</div>
                 </div>
                 <div class="computer-info">
-                    <div class="computer-points">health points</div>
-                    <div class="computer-icon"><img src="./img/icons8-sasuke-uchiha-96.png" alt="computer's picture"></div>
+                    <div class="computer-points"></div>
+                    <div class="computer-icon"><img src="./img/icons8-bmo-48.png" alt="computer's picture"></div>
                 </div>
             </div>
             <div class="game-content">
-                screen
-                <div class="player">
-                    <img src="" alt="">
+                <div class="left-black-screen"></div>
+                <div class="screen">
+                    <img src="./img/nature.jpg" alt="">
+                    <div class="game-screen-footer">
+                        <p class="game-screen-footer-text">asasa</p>
+                    </div>
                 </div>
-                <div class="computer">
-                    <img src="" alt="">
-                </div>
+                <div class="right-black-screen"></div>
             </div>
-            <div class="game-footer">dialogue</div>
             <div class="move-selection">
-                <button><img src="./img/Toph_Beifong.webp" alt="">rock</button>
-                <button><img src="./img/Konan_Infobox.webp" alt="">paper</button>
-                <button><img src="./img/RyukoMatoi.jpg" alt="">scissors</button>
+                <p class="text">Choose your move</p>
+                <button type="submit" class="button-rock"><img src="./img/Toph_Beifong.webp" alt=""></button>
+                <button type="submit" class="button-paper"><img src="./img/Konan_Infobox.webp" alt=""></button>
+                <button type="submit" class="button-scissor"><img src="./img/RyukoMatoi.jpg" alt=""></button>
             </div>
         </div>
     </div>
+    <script src="./js/scripts.js"></script>
 </body>
 </html>
