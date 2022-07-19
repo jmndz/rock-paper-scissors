@@ -22,6 +22,11 @@ startButton.addEventListener('click', startGame);
 const restartButton = document.querySelector('.restart-button');
 restartButton.addEventListener('click', restartGame)
 const screenImg = document.querySelector('.screen-image');
+const gameOverAudio = new Audio('./img/GameOver.mp3');
+const wellDoneAudio = new Audio('./img/WellDone.mp3');
+const youWinAudio = new Audio('./img/YouWin.mp3');
+const youLoseAudio = new Audio('./img/YouSuck.mp3');
+
 
 let playerMove = '';
 let roundCounter = 1;
@@ -59,12 +64,16 @@ function restartGame(){
 
 function endGame(){
     if(playerScore === 5){
+        wellDoneAudio.play();
+        setTimeout(() => youWinAudio.play(),2000)
         gameText.textContent = "Congratulations. You win.";
         computerIcon.style.filter = 'brightness(30%)';
         screenImg.src = './img/celebrate.gif';
         screenImg.style.backgroundSize = 'cover';
         screenImg.style.backgroundPosition = 0;
     }else if(computerScore ===5){
+        gameOverAudio.play();
+        setTimeout(() => youLoseAudio.play(),2000)
         gameText.textContent = "Game Over. You lose.";
         playerIcon.style.filter = 'brightness(30%)';
         screenImg.src = './img/defeat.gif';
@@ -111,16 +120,19 @@ function scissorPlay(){
 function disableButton(){
     if(playerMove === 'rock'){
         rock.style.opacity = 1;
+        rock.disabled = true;
         paper.disabled = true;
         scissor.disabled = true;
     }else if(playerMove === 'paper'){
         paper.style.opacity = 1;
         rock.disabled = true;
+        paper.disabled = true;
         scissor.disabled = true;
     }else if(playerMove === 'scissor'){
         scissor.style.opacity = 1;
         rock.disabled = true;
         paper.disabled = true;
+        scissor.disabled = true;
     }
 }
 
@@ -232,4 +244,8 @@ function computerHealthPoint(){
         computerGreenPoints.style.flex = 0;
         computerRedPoints.style.flex = 1;
     }
+}
+
+function gameAnimation(){
+
 }
