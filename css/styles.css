@@ -39,6 +39,7 @@ body {
     border: 5px solid transparent;
     border-radius: 15px;
     background: linear-gradient(purple, blue, skyblue, indigo);
+    overflow: auto;
 }
 
 .sidebar-header {
@@ -49,12 +50,14 @@ body {
     padding: 20px;
 }
 
-.game-log {
+.game-log{
     flex: 1;
     background-color: beige;
     padding-left: 10px;
     padding-top: 5px;
     border-radius: 0 0 10px 10px;
+    font-size: 15px;
+    white-space: pre-wrap;
 }
 
 .divider {
@@ -155,11 +158,11 @@ body {
 .game-text {
     font-size: 45px;
     position: absolute;
-    top: 5%;
+    top: 20%;
     left: 10%;
     right: 10%;
     transform: translate(0%,50%);
-    display: none;
+    visibility: hidden;
 }
 
 .screen img{
@@ -254,6 +257,15 @@ button:hover{
 .round,
 .computer-info,
 .game-screen-footer-text,
-.restart-button{
+.restart-button,
+.character{
     visibility: hidden;
+}
+
+.character {
+    position: absolute;
+    max-height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-10%);
 }

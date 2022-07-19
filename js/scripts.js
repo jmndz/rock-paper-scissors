@@ -26,6 +26,7 @@ const gameOverAudio = new Audio('./img/GameOver.mp3');
 const wellDoneAudio = new Audio('./img/WellDone.mp3');
 const youWinAudio = new Audio('./img/YouWin.mp3');
 const youLoseAudio = new Audio('./img/YouSuck.mp3');
+const character = document.querySelector('.character');
 
 
 let playerMove = '';
@@ -35,6 +36,7 @@ let computerScore = 0;
 
 function game(playerSelection){  
     const computerSelection = computerPlay();
+    gameAnimation();
     playRound(playerSelection, computerSelection);
     if(playerScore === 5 || computerScore === 5) endGame();
     else enableButton();
@@ -55,6 +57,8 @@ function restartGame(){
     computerGreenPoints.style.flex = 1;
     computerRedPoints.style.flex = 0;
 
+    welcomeText.textContent = "Waiting for your move..";
+    welcomeText.style.visibility = 'visible';
     round.textContent = roundCounter;
     gameLog.textContent = 'Starting new game..';
     gameText.textContent = '';
@@ -84,6 +88,7 @@ function endGame(){
     paper.disabled = true;
     scissor.disabled = true;
     restartButton.style.visibility = 'visible';
+    character.style.visibility = 'hidden';
 }
 
 function startGame(){
@@ -96,7 +101,8 @@ function startGame(){
     computerInfo.style.visibility = 'visible';
     moveSelectionText.style.visibility = 'visible';
     startButton.style.visibility = 'hidden';
-
+    welcomeText.textContent = "Round 1";
+    welcomeText.style.visibility = 'visible';
 }
 
 function rockPlay(){
@@ -162,46 +168,49 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
-    if(roundCounter ===1) gameLog.textContent = '';
+    if(roundCounter ===1){
+        gameLog.textContent = '';
+        welcomeText.style.visibility = 'hidden';
+    } 
     if(playerSelection==="rock" && computerSelection==="paper"){
         computerScore++;
         gameText.textContent = "You lose. Paper beats Rock";
-        gameLog.textContent += `Round ${roundCounter} - Rock VS Paper`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Rock VS Paper `;
         playerHealthPoint();
     }else if(playerSelection==="rock" && computerSelection==="scissor"){
         playerScore++;
         gameText.textContent = "You win. Rock beats Scissor";
-        gameLog.textContent += `Round ${roundCounter} - Rock VS Scissor`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Rock VS Scissor `;
         computerHealthPoint();
     }else if(playerSelection==="paper" && computerSelection==="rock"){
         playerScore++;
         gameText.textContent = "You win. Paper beats Rock";
-        gameLog.textContent += `Round ${roundCounter} - Paper VS Rock`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Paper VS Rock `;
         computerHealthPoint();
     }else if(playerSelection==="paper" && computerSelection==="scissor"){
         computerScore++;
         gameText.textContent = "You lose. Scissor beats Paper";
-        gameLog.textContent += `Round ${roundCounter} - Paper VS Scissor`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Paper VS Scissor `;
         playerHealthPoint();
     }else if(playerSelection==="scissor" && computerSelection==="rock"){
         computerScore++;
         gameText.textContent = "You lose. Rock beats Scissor";
-        gameLog.textContent += `Round ${roundCounter} - Scissor VS Rock`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Scissor VS Rock `;
         playerHealthPoint();
     }else if(playerSelection==="scissor" && computerSelection==="paper"){
         playerScore++;
         gameText.textContent = "You win. Scissor beats Paper";
-        gameLog.textContent += `Round ${roundCounter} - Scissor VS Paper`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Scissor VS Paper `;
         computerHealthPoint();
     }else if(playerSelection==="rock" && computerSelection==="rock"){
         gameText.textContent = "It's a tie.";
-        gameLog.textContent += `Round ${roundCounter} - Rock VS Rock`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Rock VS Rock `;
     }else if(playerSelection==="paper" && computerSelection==="paper"){
         gameText.textContent = "It's a tie.";
-        gameLog.textContent += `Round ${roundCounter} - Paper VS Paper`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Paper VS Paper `;
     }else if(playerSelection==="scissor" && computerSelection==="scissor"){
         gameText.textContent = "It's a tie.";
-        gameLog.textContent += `Round ${roundCounter} - Scissor VS Scissor`;
+        gameLog.textContent += `\nRound ${roundCounter}  -  Scissor VS Scissor `;
     } 
 
     roundCounter++;
@@ -247,5 +256,16 @@ function computerHealthPoint(){
 }
 
 function gameAnimation(){
+    character.style.visibility = 'visible';
 
+    if(playerMove==='rock'){
+        screenImg.src = './img/nature.jpg';
+        character.src = './img/toph.png';
+    }else if(playerMove === 'paper'){
+        screenImg.src = './img/library.jpg';
+        character.src = './img/konan.png';
+    }else if(playerMove === 'scissor'){
+        screenImg.src = './img/classroom.jpg';
+        character.src = './img/ryuko.png';
+    }
 }
