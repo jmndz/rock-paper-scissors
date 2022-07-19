@@ -101,7 +101,7 @@ function startGame(){
     computerInfo.style.visibility = 'visible';
     moveSelectionText.style.visibility = 'visible';
     startButton.style.visibility = 'hidden';
-    welcomeText.textContent = "Round 1";
+    welcomeText.textContent = "Waiting for your move..";
     welcomeText.style.visibility = 'visible';
 }
 
