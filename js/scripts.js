@@ -50,6 +50,7 @@ function restartGame(){
     computerGreenPoints.style.flex = 1;
     computerRedPoints.style.flex = 0;
 
+    round.textContent = roundCounter;
     gameLog.textContent = 'Starting new game..';
     gameText.textContent = '';
     restartButton.style.visibility = 'hidden';
